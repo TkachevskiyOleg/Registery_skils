@@ -22,4 +22,8 @@ public class Skill {
 
     @ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
     private Set<Teacher> teachers = new HashSet<>();
+
+    public Set<Teacher> getTeachers() {
+        return teachers;
+    }
 }

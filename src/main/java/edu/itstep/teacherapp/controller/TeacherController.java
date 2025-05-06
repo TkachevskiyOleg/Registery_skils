@@ -64,14 +64,6 @@ public class TeacherController {
         return "teacher/form";
     }
 
-    @GetMapping("/{id}")
-    public String teacherDetails(@PathVariable Long id, Model model) {
-        Teacher teacher = teacherService.getTeacherById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Невірний ID вчителя: " + id));
-        model.addAttribute("teacher", teacher);
-        return "teacher/details";
-    }
-
     @GetMapping("/{id}/delete")
     public String deleteTeacher(@PathVariable Long id) {
         teacherService.deleteTeacher(id);

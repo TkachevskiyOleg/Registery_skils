@@ -9,30 +9,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class TeacherServiceImpl implements TeacherService {
+
+    private final TeacherRepository teacherRepository;
+
     @Autowired
-    private TeacherRepository teacherRepository;
+    public TeacherServiceImpl(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
+    }
 
     @Override
-    @Transactional
     public List<Teacher> getAllTeachers() {
         return teacherRepository.findAll();
     }
 
     @Override
-    @Transactional
     public Optional<Teacher> getTeacherById(Long id) {
         return teacherRepository.findById(id);
     }
 
     @Override
-    @Transactional
     public void saveTeacher(Teacher teacher) {
         teacherRepository.save(teacher);
     }
 
     @Override
-    @Transactional
     public void deleteTeacher(Long id) {
         teacherRepository.deleteById(id);
     }

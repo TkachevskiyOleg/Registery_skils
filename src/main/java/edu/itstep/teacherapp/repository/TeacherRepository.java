@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+    // Додаткові методи (приклад кастомного запиту)
+    List<Teacher> findByNameContainingIgnoreCase(String name);
 }

@@ -9,30 +9,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class SkillServiceImpl implements SkillService {
+
+    private final SkillRepository skillRepository;
+
     @Autowired
-    private SkillRepository skillRepository;
+    public SkillServiceImpl(SkillRepository skillRepository) {
+        this.skillRepository = skillRepository;
+    }
 
     @Override
-    @Transactional
     public List<Skill> getAllSkills() {
         return skillRepository.findAll();
     }
 
     @Override
-    @Transactional
     public Optional<Skill> getSkillById(Long id) {
         return skillRepository.findById(id);
     }
 
     @Override
-    @Transactional
     public void saveSkill(Skill skill) {
         skillRepository.save(skill);
     }
 
     @Override
-    @Transactional
     public void deleteSkill(Long id) {
         skillRepository.deleteById(id);
     }
