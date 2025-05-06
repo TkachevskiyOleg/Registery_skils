@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,41 +60,31 @@
     </style>
 </head>
 <body>
-    <h1>Список вчителів</h1>
-
-    <a href="${pageContext.request.contextPath}/teachers/new" class="add-new">Додати нового вчителя</a>
-
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Ім'я</th>
-                <th>Прізвище</th>
-                <th>Дата народження</th>
-                <th>Навички</th>
-                <th>Дії</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="teacher" items="${teachers}">
-                <tr>
-                    <td>${teacher.id}</td>
-                    <td>${teacher.name}</td>
-                    <td>${teacher.surname}</td>
-                    <td><fmt:formatDate value="${teacher.birthDate}" pattern="dd.MM.yyyy" /></td>
-                    <td>
-                        <c:forEach var="skill" items="${teacher.skills}" varStatus="status">
-                            ${skill.name}<c:if test="${!status.last}">, </c:if>
-                        </c:forEach>
-                    </td>
-                    <td class="actions">
-                        <a href="${pageContext.request.contextPath}/teachers/${teacher.id}" class="view">Перегляд</a>
-                        <a href="${pageContext.request.contextPath}/teachers/${teacher.id}/edit" class="edit">Редагувати</a>
-                        <a href="${pageContext.request.contextPath}/teachers/${teacher.id}/delete" class="delete">Видалити</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+<h1>Список викладачів</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>Дата народження</th>
+        <th>Навички</th>
+    </tr>
+    <c:forEach items="${teachers}" var="teacher">
+        <tr>
+            <td>${teacher.id}</td>
+            <td>${teacher.name}</td>
+            <td>${teacher.surname}</td>
+            <td>
+                <fmt:formatDate value="${teacher.birthDate}" pattern="dd.MM.yyyy" />
+            </td>
+            <td>
+                <c:forEach items="${teacher.skills}" var="skill" varStatus="status">
+                    ${skill.name}<c:if test="${!status.last}">, </c:if>
+                </c:forEach>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
+<a href="/teachers/new" class="add-new">Додати викладача</a>
 </body>
 </html>

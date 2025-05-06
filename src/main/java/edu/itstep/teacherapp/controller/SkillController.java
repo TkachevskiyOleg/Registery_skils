@@ -3,13 +3,15 @@ package edu.itstep.teacherapp.controller;
 import edu.itstep.teacherapp.model.Skill;
 import edu.itstep.teacherapp.service.SkillService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
+import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/skills")
 public class SkillController {
@@ -22,7 +24,8 @@ public class SkillController {
 
     @GetMapping
     public String listSkills(Model model) {
-        model.addAttribute("skills", skillService.getAllSkills());
+        List<Skill> skills = skillService.getAllSkills();
+        model.addAttribute("skills", skills);
         return "skill/list";
     }
 
@@ -33,7 +36,10 @@ public class SkillController {
     }
 
     @PostMapping
-    public String saveSkill(@Valid @ModelAttribute Skill skill, BindingResult result) {
+    public String saveSkill(
+            @Valid @ModelAttribute("skill") Skill skill,
+            BindingResult result
+    ) {
         if (result.hasErrors()) {
             return "skill/form";
         }
@@ -43,16 +49,10 @@ public class SkillController {
 
     @GetMapping("/{id}/edit")
     public String showEditForm(@PathVariable Long id, Model model) {
-        Optional<Skill> skill = skillService.getSkillById(id);
-        skill.ifPresent(value -> model.addAttribute("skill", value));
+        Skill skill = skillService.getSkillById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Невірний ID навички: " + id));
+        model.addAttribute("skill", skill);
         return "skill/form";
-    }
-
-    @GetMapping("/{id}")
-    public String skillDetails(@PathVariable Long id, Model model) {
-        Optional<Skill> skill = skillService.getSkillById(id);
-        skill.ifPresent(value -> model.addAttribute("skill", value));
-        return "skill/details";
     }
 
     @GetMapping("/{id}/delete")

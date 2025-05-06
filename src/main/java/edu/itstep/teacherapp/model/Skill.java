@@ -7,21 +7,18 @@ import lombok.NoArgsConstructor;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "skills")
 @Data
 @NoArgsConstructor
+@Entity
+@Table(name = "skills")
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "Назва навички обов'язкова")
-    @Column(nullable = false, unique = true)
+    @Column(unique = true, nullable = false)
     private String name;
-
-    @Column
-    private String description;
 
     @ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
     private Set<Teacher> teachers = new HashSet<>();

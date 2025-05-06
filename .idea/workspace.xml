@@ -9,7 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fb60740-24e8-4c08-b2d6-b115bdb15e51" name="Changes" comment="Fix" />
+    <list default="true" id="7fb60740-24e8-4c08-b2d6-b115bdb15e51" name="Changes" comment="Fix">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring mvc flow.001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/model/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/model/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/model/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/itstep/teacherapp/model/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teacher/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Знімок екрана 2025-04-23 120659.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +89,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "spring",
@@ -241,7 +252,10 @@
       <workItem from="1745414852007" duration="480000" />
       <workItem from="1745415367554" duration="2830000" />
       <workItem from="1745566200081" duration="9995000" />
-      <workItem from="1745579693000" duration="2659000" />
+      <workItem from="1745579693000" duration="7292000" />
+      <workItem from="1745595695933" duration="2814000" />
+      <workItem from="1745742552854" duration="3461000" />
+      <workItem from="1746548689236" duration="441000" />
     </task>
     <task id="LOCAL-00001" summary="Error Registery">
       <option name="closed" value="true" />
@@ -259,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745582349678</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1745582417202</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745582417202</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

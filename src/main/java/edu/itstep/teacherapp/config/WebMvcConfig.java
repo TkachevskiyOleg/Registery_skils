@@ -3,7 +3,7 @@ package edu.itstep.teacherapp.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.format.datetime.DateFormatter;
+import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -17,6 +17,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(new DateFormatter("yyyy-MM-dd")); // Форматування дати
+        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
+        registrar.setDateFormatter(java.time.format.DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        registrar.registerFormatters(registry);
     }
 }
